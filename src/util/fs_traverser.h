@@ -211,14 +211,19 @@ void get_extension_to_file_count(const char *path, ExtCount* extCountResult) {
 }
 
 void get_name_without_ext(const char *input, char *output, size_t outSize) {
+    /**
+     * C’s strchr() and Java’s String.indexOf() do a similar job (find a character in a string), but their return values and behavior are different.
+     * Returns a char pointer to the first occurrence
+     * 
+     */
     const char *dot = strchr(input, '.');  // find first '.'
 
     size_t len;
     if (dot != NULL) {
-        len = dot - input;  // number of chars before '.'. Does pointer arithmetic, and gives the length of teh file name part in input.
+        len = dot - input;  // number of chars before '.'. Does pointer arithmetic, and gives the length of the file name part in input.
     } else {
         // no dot → copy entire string
-        len = strlen(input);
+        len = strlen(input);//strlen is same as Java's String length
     }
 
     // ensure we don't overflow output buffer
@@ -313,7 +318,7 @@ void process_path(const char *path, const char *outputpath,
                     int *width = malloc(sizeof(int)); 
                     int *height = malloc(sizeof(int)); 
                     get_resource_resolution_function_pointer(fullpath, width, height);
-                    printf("re4source esolution path = %s, width = %d, height = %d\n", fullpath, *width, *height);
+                    printf("resource resolution path = %s, width = %d, height = %d\n", fullpath, *width, *height);
                     if (strcmp(lower_ext, ".mp4") == 0) {
                         bool hasAudio = video_has_audio_fp(fullpath) == 1 ? true : false;
                         char logLine[5000];
