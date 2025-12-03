@@ -161,6 +161,10 @@ int main(int argc, char *argv[]) {
     FILE *inputPathDiscoveryLogFp = fopen(inputPathDiscoveryLogFile, "w");//inputPathDiscovery.log file will get created if not exists, parent directory should exist.
     if (!inputPathDiscoveryLogFp) return 1;
 
+    /**
+     * you need not declare function pointer variable, in C function name (without parantheses) is a function pointer itself.
+     * 
+     */
     void (*get_resource_resolution_fp)(const char *, int *, int *) = get_resource_resolution;//function pointer variable named get_resource_resolution_fp pointing to get_resource_resolution method
     void (*transcode_video_fp)(const char *, const char *, int, int, const char *) = transcode_video;//function pointer variable named transcode_video_fp pointing to transcode_video
     void (*encode_image_fp)(const char *, const char *, int, int) = encode_image;//function pointer variable named encode_image_fp pointing to encode_image

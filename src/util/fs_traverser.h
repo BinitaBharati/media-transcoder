@@ -235,6 +235,22 @@ void get_name_without_ext(const char *input, char *output, size_t outSize) {
     printf("get_name_without_ext: input = %s, output = %s\n",input, output);
 }
 
+/**
+ Instead of havinh such verbose inpur args (owing to function pointers), you can simplify this by uisng typedefs like below:
+
+typedef void (*resolution_fn)(const char *, int *, int *);
+typedef void (*transcode_fn)(const char *, const char *, int, int, const char *);
+typedef void (*encode_image_fn)(const char *, const char *, int, int);
+typedef int  (*video_has_audio_fn)(const char *);
+
+Now, you function declaration looks like below:
+void process_path(const char *path, const char *outputpath,
+                  resolution_fn get_resource_resolution_function_pointer,
+                  transcode_fn transcode_video_fp,
+                  encode_image_fn encode_image_fp,
+                  video_has_audio_fn video_has_audio_fp,
+                  FILE *inputPathDiscoveryLogFp)
+ */
 void process_path(const char *path, const char *outputpath,
     void (*get_resource_resolution_function_pointer)(const char *, int *, int *),
     void (*transcode_video_fp)(const char *, const char *, int, int, const char *),
