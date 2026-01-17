@@ -321,6 +321,10 @@ void process_path(const char *path, const char *outputpath,
               * 
               */
             const char *ext = strrchr(entry->d_name, '.');
+            if (!ext) {
+                closedir(dir);
+                return;
+            }
 
             //we need to look for only .mp4, .png, .jpg files.       
             char lower_ext[32];
