@@ -12,15 +12,18 @@
 * There are multiple C main files in this project.
   - media_sorter - This code will segregate a given input directory content by media resolution and media extension. You will need to provide the input directory that has the media resources,  the output directory where the segregated media resources should be saved, and the interesting file extension that you want to segregate for. 
   
-    Compile media_sorter: `gcc src/media_sorter.c -o media_sorter.bin`.
+    Compile media_sorter: `gcc src/media_sorter.c -o out/media_sorter.bin`.
     
-    Run media_sorter: `./media_sorter.bin /workspace/input/assets/assets/25.1-assets/ /workspace/output/sorted/ mp4`
+    Run media_sorter: `out/media_sorter.bin /workspace/input/assets/assets/25.1-assets/ /workspace/output/sorted/ mp4`
     
   - media_processor - This code will transcode all the media resources inside the input directory to various resolutions. You will need to provide the input directory that has the segregated media resources,  the output directory where the transcoded media resources should be saved, and the interesting file resolution that you want to transcode for. 
 
   Compile media_processor: `gcc src/media_processing.c -o out/media_processing.bin`
 
-  Run media_processor: `out/media_processing.bin /workspace/output/sorted/ /workspace/output/sorted/ 1920X1080`
+  Run media_processor: `out/media_processing.bin /workspace/output/sorted/ /workspace/output/sorted 1920X1080`
+                        Total Time Taken: 1575541877521 ns (1575541.878 ms)
+                        Total Time Taken: 1452380697101 ns (1452380.697 ms)
+                        Total Time Taken: 254021654176 ns (254021.654 ms)
 
   
 * In case, any of the run fails, you can recompile the respective program enabling ASAN, and then re-run the main program. It may help you to find the faulty code. `gcc -g -O1 -fsanitize=address,undefined -fno-omit-frame-pointer src/media_processing.c -o out/media_processing.bin`
