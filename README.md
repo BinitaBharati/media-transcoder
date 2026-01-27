@@ -8,13 +8,13 @@
 
 # Run
 * Log in to the container: `docker exec -it media-processor /bin/bash`
-* Copy the media resources manually from the host to the container. Sample command to copy from host : `docker cp ~/media-processing-assets/ media-processor:/workspace/input/assets`
+* Copy the media resources manually from the host to the container. Sample command to copy from host : `docker cp ~/media-processing-assets media-processor:/workspace/input/assets`
 * There are multiple C main files in this project.
   - media_sorter - This code will segregate a given input directory content by media resolution and media extension. You will need to provide the input directory that has the media resources,  the output directory where the segregated media resources should be saved, and the interesting file extension that you want to segregate for. 
   
     Compile media_sorter: `gcc src/media_sorter.c -o media_sorter.bin`.
     
-    Run media_sorter: `./media_sorter.bin /workspace/input/assets/media-processing-assets/assets/25.1-assets/ /workspace/output/sorted/ mp4`
+    Run media_sorter: `./media_sorter.bin /workspace/input/assets/assets/25.1-assets/ /workspace/output/sorted/ mp4`
     
   - media_processor - This code will transcode all the media resources inside the input directory to various resolutions. You will need to provide the input directory that has the segregated media resources,  the output directory where the transcoded media resources should be saved, and the interesting file resolution that you want to transcode for. 
 
