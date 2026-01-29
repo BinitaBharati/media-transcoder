@@ -1,0 +1,68 @@
+VRS data at:
+
+/mnt/devscratch/vrs_staging_2/data.
+
+It has been copied to ~/media-processing-assets/
+
+=======================================
+
+Total Time Taken: 6348534659566 ns (6348534.660 ms)
+
+=========================================
+Adobe ME encoded files here:
+
+Normal downscaling
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/3840X2160
+
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/1920X1080/r_19_FHD.mp4
+/Users/binita/personal/projects/C-projects/media-transcoder/ffmpeg-processed-output1//1920X1080/1920X1080/
+
+
+
+Upscaling videos:
+Upscaling with adobe me seems to be working well suprisingly.
+
+1) /Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/960X540/video_250.mp4
+ ffprobe -v error -select_streams v:0 \
+-show_entries stream=bit_rate \
+-of default=noprint_wrappers=1:nokey=1 video_250.mp4
+1358414
+
+Bit rate is 1.3 MPbps, let us try to encode this to same size but with bit rate 3Mbps. It should reduce quality.
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/960X540/Output/960X549_3Mbps/video_250_1.mp4
+
+2)/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/960X540/video_250.mp4
+encode to 1280X720_8Mbps
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/960X540/
+/Users/binita/personal/projects/C-projects/media-transcoder/ffmpeg-processed-output1/960X540/960X540/video_250-1280x720-8M.mp4
+
+3)/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/960X540/video_250.mp4
+encode to 1920X1080_15Mbps (could not put 15 on adobe me, max allowed was 14)
+/Users/binita/personal/projects/C-projects/media-transcoder/ffmpeg-processed-output1/960X540/960X540/video_250-1920x1080-15M.mp4
+
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/600X500/ all 3 videos
+encoded to 1920X1080 bit rate around 15Mbps (This time it allowed 15 Mbps BR)
+
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/600X1200/ 
+encoded to 1920X1080 bit rate around 15Mbps (This time it allowed 15 Mbps BR)
+
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/864X480/ 
+encoded to 1920X1080 bit rate around 15Mbps (This time it allowed 15 Mbps BR)
+
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/mp4/1248X704/
+
+-------------------------------------------------------------------------
+Image encoding sample:
+Normal downscaling example:
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/png/1920X1080
+
+Upscaling images:
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/png/181X181
+181X181 png was trasncoded to 1920X1920. Of course image became blurred.
+
+/Users/binita/personal/projects/C-projects/media-transcoder/adobe-me-input/png/360X360
+360X360 png was trasncoded to 1920X1920. Of course image became blurred.
+
+
+==============================
+https://account.adobe.com/?lang=en -> Manage Plan
