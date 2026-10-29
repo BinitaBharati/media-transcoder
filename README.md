@@ -1,6 +1,6 @@
 # Overview
-This project was taken up to compare media processing quality using ffmpeg vs using Adobe Media Encoder.
-There is a blog that talks about this in the FootNote section. https://medium.com/@binitabharati/transcoding-video-and-images-with-adobe-media-encoder
+This project was taken up to compare media processing quality using `ffmpeg` vs  `Adobe Media Encoder`.
+There is a blog that talks about this in the FootNote section https://medium.com/@binitabharati/transcoding-video-and-images-with-adobe-media-encoder
 
 
 # Build
